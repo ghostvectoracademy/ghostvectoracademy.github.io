@@ -1,0 +1,1130 @@
+GhostVector Academy — Design System & Visual Language
+Inspired by HexaCore Aesthetic
+1. DESIGN PHILOSOPHY
+After analyzing the HexaCore design you shared, here's how we adapt that premium, futuristic cybersecurity aesthetic for GhostVector Academy:
+
+Core Design Principles from HexaCore Reference
+text
+
+✓ Dark, immersive backgrounds (deep blacks/navies)
+✓ Neon accent colors (electric blue/cyan) against darkness
+✓ Geometric patterns and hexagonal grids
+✓ Glassmorphism (frosted glass effects)
+✓ Subtle 3D elements and depth
+✓ Grid overlays and technical diagrams
+✓ Holographic/iridescent effects
+✓ Clean, modern sans-serif typography
+✓ Generous white space despite dark theme
+✓ Floating cards with shadows and glow effects
+2. COLOR SYSTEM
+Primary Palette
+CSS
+
+/* Background Layers */
+--bg-depth-1: #0A0E1A;  /* Deepest black-blue */
+--bg-depth-2: #0F1420;  /* Secondary surface */
+--bg-depth-3: #151A28;  /* Elevated elements */
+--bg-depth-4: #1A2033;  /* Cards, modals */
+
+/* Neon Accents (Primary Brand) */
+--neon-cyan: #00F0FF;       /* Main CTA, highlights */
+--neon-cyan-glow: rgba(0, 240, 255, 0.4);  /* Glow effect */
+--neon-blue: #0084FF;       /* Secondary actions */
+--neon-purple: #8B5CF6;     /* Tertiary accent */
+--neon-purple-glow: rgba(139, 92, 246, 0.3);
+
+/* Status Colors */
+--success: #00FF94;         /* Completed labs, success states */
+--warning: #FFB800;         /* In-progress, warnings */
+--error: #FF3366;           /* Failed attempts, errors */
+--info: #00A8FF;            /* Info tooltips */
+
+/* Text Hierarchy */
+--text-primary: #FFFFFF;    /* Headings, key content */
+--text-secondary: #B8C5D6;  /* Body text */
+--text-tertiary: #6B7B94;   /* Muted text, labels */
+--text-disabled: #3D4A5C;   /* Disabled states */
+
+/* Surfaces & Borders */
+--surface-glass: rgba(255, 255, 255, 0.05);  /* Glassmorphism */
+--border-subtle: rgba(255, 255, 255, 0.08);
+--border-medium: rgba(0, 240, 255, 0.2);
+--border-bright: rgba(0, 240, 255, 0.6);
+Gradient System
+CSS
+
+/* Hero Gradients */
+--gradient-hero: linear-gradient(
+  135deg,
+  #0A0E1A 0%,
+  #1A2033 50%,
+  #0A0E1A 100%
+);
+
+/* Card Glow */
+--gradient-card-glow: linear-gradient(
+  135deg,
+  rgba(0, 240, 255, 0.1) 0%,
+  rgba(139, 92, 246, 0.1) 100%
+);
+
+/* Button Gradients */
+--gradient-primary-btn: linear-gradient(
+  90deg,
+  #00F0FF 0%,
+  #0084FF 100%
+);
+
+--gradient-secondary-btn: linear-gradient(
+  90deg,
+  #8B5CF6 0%,
+  #6D28D9 100%
+);
+
+/* Holographic Shimmer */
+--gradient-holographic: linear-gradient(
+  45deg,
+  #00F0FF 0%,
+  #8B5CF6 25%,
+  #00FF94 50%,
+  #00F0FF 75%,
+  #8B5CF6 100%
+);
+background-size: 200% 200%;
+animation: shimmer 3s linear infinite;
+3. TYPOGRAPHY
+Font Stack
+CSS
+
+/* Headings & UI */
+--font-display: 'Space Grotesk', -apple-system, sans-serif;
+  /* Modern, geometric, techy feel */
+
+/* Body Text */
+--font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Clean, highly readable */
+
+/* Code & Terminal */
+--font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  /* Programming ligatures, terminal aesthetic */
+
+/* Accent/Logo */
+--font-accent: 'Orbitron', 'Space Grotesk', sans-serif;
+  /* Futuristic display font for logo/special headings */
+Type Scale
+CSS
+
+/* Display */
+--text-display-1: 72px / 1.1;   /* Landing hero */
+--text-display-2: 56px / 1.1;   /* Section heroes */
+
+/* Headings */
+--text-h1: 48px / 1.2;  font-weight: 700;
+--text-h2: 36px / 1.3;  font-weight: 700;
+--text-h3: 28px / 1.4;  font-weight: 600;
+--text-h4: 24px / 1.4;  font-weight: 600;
+--text-h5: 20px / 1.5;  font-weight: 600;
+--text-h6: 18px / 1.5;  font-weight: 600;
+
+/* Body */
+--text-large: 18px / 1.6;   font-weight: 400;
+--text-body: 16px / 1.6;    font-weight: 400;
+--text-small: 14px / 1.5;   font-weight: 400;
+--text-xs: 12px / 1.4;      font-weight: 500;
+
+/* Mono */
+--text-code: 14px / 1.6;    font-weight: 400;
+--text-terminal: 14px / 1.4; font-weight: 400;
+4. COMPONENT LIBRARY
+4.1 Navigation Bar
+text
+
+┌─────────────────────────────────────────────────────────────────┐
+│  [GV Logo]     Learn  Practice  Compete  Community    [👤 Pro] │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+
+Specifications:
+- Height: 72px
+- Background: rgba(10, 14, 26, 0.8) with backdrop-blur(20px)
+- Border-bottom: 1px solid rgba(255, 255, 255, 0.05)
+- Position: Sticky top
+- Shadow: 0 8px 32px rgba(0, 0, 0, 0.4)
+- Logo: "GV" monogram with neon cyan glow
+- Nav items: 
+  - Default: var(--text-secondary)
+  - Hover: var(--neon-cyan) with 2px bottom border
+  - Active: var(--neon-cyan)
+- User avatar: Hexagonal frame with purple glow border
+- Animation: Slide down on scroll down, slide up on scroll up
+Visual Reference Style:
+
+text
+
+ ██████╗ ██╗   ██╗
+██╔════╝ ██║   ██║
+██║  ███╗██║   ██║    [Glowing cyan]
+██║   ██║╚██╗ ██╔╝
+╚██████╔╝ ╚████╔╝ 
+ ╚═════╝   ╚═══╝     GhostVector
+4.2 Hero Section (Landing Page)
+text
+
+Layout:
+
+┌────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│                    GHOSTVECTOR ACADEMY                          │
+│                                                                 │
+│         Where Cybersecurity Skills Are Forged                  │
+│                    Not Memorized                               │
+│                                                                 │
+│        [Start Learning Free]  [View Demo Lab →]                │
+│                                                                 │
+│    [Floating 3D lab terminal preview with glow]                │
+│                                                                 │
+│  🔹 Dynamic Labs  🔹 Live CTFs  🔹 Real Skills                 │
+│                                                                 │
+└────────────────────────────────────────────────────────────────┘
+
+Specifications:
+- Height: 100vh (full viewport)
+- Background: 
+  - Base: var(--bg-depth-1)
+  - Animated hexagonal grid pattern (subtle, moving)
+  - Radial gradient spotlight from top-center (cyan glow)
+  
+- Title:
+  - Font: var(--font-display) 
+  - Size: 72px
+  - Effect: Gradient text (cyan → purple)
+  - Letter-spacing: -0.02em
+  
+- Subtitle:
+  - Font: var(--font-body)
+  - Size: 24px
+  - Color: var(--text-secondary)
+  - Max-width: 600px, centered
+  
+- CTAs:
+  - Primary: Neon cyan bg, white text, glow effect on hover
+  - Secondary: Glass border, cyan text, hover fill
+  - Height: 56px, padding: 0 32px
+  - Border-radius: 8px
+  
+- Floating Element:
+  - 3D-ish terminal mockup
+  - Glassmorphism card
+  - Typing animation showing commands
+  - Rotate on mouse move (parallax)
+  - Drop shadow: 0 20px 80px rgba(0, 240, 255, 0.3)
+  
+- Bottom Stats:
+  - Icon + Text horizontal layout
+  - Icons: Custom hexagon-framed icons
+  - Glow on hover
+Background Animation:
+
+CSS
+
+/* Hexagonal Grid Pattern */
+background-image: 
+  url('hex-grid.svg'),  /* Subtle hex pattern */
+  radial-gradient(
+    circle at 50% 20%,
+    rgba(0, 240, 255, 0.15) 0%,
+    transparent 50%
+  );
+background-size: 100px 100px, cover;
+animation: grid-drift 20s linear infinite;
+
+@keyframes grid-drift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 100px 100px, 0 0; }
+}
+4.3 Feature Cards (Homepage Sections)
+text
+
+┌─────────────────────────────────────┐
+│  [Icon with glow]                   │
+│                                     │
+│  Adaptive Dynamic Labs              │
+│                                     │
+│  Every lab is different. No two     │
+│  users face the same challenge.     │
+│  No writeups can save you.          │
+│                                     │
+│  [Learn More →]                     │
+└─────────────────────────────────────┘
+
+Specifications:
+- Background: Glassmorphism
+  - background: rgba(255, 255, 255, 0.03)
+  - backdrop-filter: blur(20px)
+  - border: 1px solid rgba(255, 255, 255, 0.08)
+  
+- Hover State:
+  - border: 1px solid var(--neon-cyan)
+  - box-shadow: 0 8px 32px rgba(0, 240, 255, 0.2)
+  - Lift: transform: translateY(-4px)
+  - Transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+  
+- Icon:
+  - Size: 48px
+  - Background: Gradient circle (cyan → purple)
+  - Glow: Drop shadow with neon color
+  - Hexagonal frame border
+  
+- Title:
+  - Font: var(--font-display)
+  - Size: 24px
+  - Color: var(--text-primary)
+  - Margin-bottom: 12px
+  
+- Description:
+  - Font: var(--font-body)
+  - Size: 16px
+  - Color: var(--text-secondary)
+  - Line-height: 1.6
+  
+- CTA Link:
+  - Color: var(--neon-cyan)
+  - Hover: Underline + arrow slide right
+  - Icon: → with transform on hover
+  
+- Padding: 32px
+- Border-radius: 16px
+- Grid Layout: 3 columns on desktop, 1 on mobile
+- Gap: 24px
+4.4 Lab Card (Lab Library)
+text
+
+┌──────────────────────────────────────────────┐
+│ [Difficulty Badge]          [Status Badge]   │
+│                                              │
+│  SQL Injection to RCE                        │
+│  Web Security • Intermediate                 │
+│                                              │
+│  ████████░░ 82% Completion Rate              │
+│                                              │
+│  🏆 350 XP  ⏱ ~45 min  👥 2.4K solved       │
+│                                              │
+│  [Launch Lab →]                              │
+└──────────────────────────────────────────────┘
+
+Specifications:
+- Background: var(--bg-depth-3)
+- Border: 1px solid var(--border-subtle)
+- Border-radius: 12px
+- Padding: 24px
+- Hover: 
+  - Border: var(--neon-cyan)
+  - Glow effect
+  - Subtle scale: transform: scale(1.02)
+  
+- Difficulty Badge:
+  - Ghost (Beginner): Green glow
+  - Shadow: Blue glow
+  - Phantom: Purple glow
+  - Specter: Red glow
+  - Vector: Rainbow holographic
+  - Size: Pill shape, 8px padding, 12px font
+  
+- Status Badge (if user started/completed):
+  - "In Progress": Yellow with animated pulse
+  - "Completed": Green with checkmark
+  - "New": Cyan with sparkle icon
+  
+- Title:
+  - Font: var(--font-display)
+  - Size: 20px
+  - Weight: 600
+  - Color: var(--text-primary)
+  
+- Metadata (Web Security • Intermediate):
+  - Font: var(--font-body)
+  - Size: 14px
+  - Color: var(--text-tertiary)
+  - Dot separator with neon color
+  
+- Progress Bar:
+  - Height: 4px
+  - Background: var(--bg-depth-1)
+  - Fill: Gradient (cyan → purple)
+  - Rounded corners
+  - Percentage text: 12px, right-aligned
+  
+- Stats Row:
+  - Icon + Value pairs
+  - Icons: 16px, inline with text
+  - Color: var(--text-secondary)
+  - Spacing: 16px gap
+  - XP has golden glow
+  
+- Launch Button:
+  - Full width or prominent right-aligned
+  - Style: Primary gradient button
+  - Hover: Glow intensifies
+  - Ripple effect on click
+4.5 Interactive Blog Layout
+text
+
+┌──────────────────────────────────────────────────────────────┐
+│  ← Back to Blogs                              [🔖 Bookmark]  │
+├──────────────────────────────────────────────────────────────┤
+│                                                               │
+│            Understanding SQL Injection Attacks                │
+│               Web Security • 15 min read • 20 min hands-on    │
+│                                                               │
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │ Table of Contents                                       │ │
+│  │ → What is SQL Injection?                                │ │
+│  │ → How it Works                                          │ │
+│  │ → Try It Yourself ← (YOU ARE HERE, glowing)            │ │
+│  │ → Defense Strategies                                    │ │
+│  └─────────────────────────────────────────────────────────┘ │
+│                                                               │
+│  [Article content with inline terminal]                      │
+│                                                               │
+│  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓     │
+│  ┃ user@ghostvector:~$ █                               ┃     │
+│  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛     │
+│                                                               │
+│  ⚡ CHALLENGE: Now try to bypass the login yourself          │
+│  [Show Solution] [Hint 1/3]                                  │
+│                                                               │
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │ 💡 Learning Objective                                   │ │
+│  │ By the end of this section, you'll be able to identify │ │
+│  │ SQL injection vulnerabilities in login forms.           │ │
+│  └─────────────────────────────────────────────────────────┘ │
+│                                                               │
+│  [Related Labs] [Next Article →]                             │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+Specifications:
+- Max-width: 840px (main content)
+- Sidebar (Table of Contents): 280px, sticky on scroll
+- Background: var(--bg-depth-1)
+- Content area: var(--bg-depth-2) card, rounded
+
+Typography:
+- Title: 42px, var(--font-display), gradient text
+- Metadata: 14px, var(--text-tertiary)
+- Body: 18px, var(--font-body), var(--text-secondary)
+- Line-height: 1.8 (very readable)
+- Paragraph spacing: 24px
+
+Terminal Embed:
+- Background: #000000
+- Border: 1px solid var(--neon-cyan)
+- Glow: box-shadow with cyan
+- Padding: 16px
+- Font: var(--font-mono), 14px
+- Color: #00FF41 (terminal green) for output
+- Cursor: Blinking white block
+- Resizable height
+
+Challenge Box:
+- Background: rgba(139, 92, 246, 0.1)
+- Border-left: 4px solid var(--neon-purple)
+- Padding: 20px
+- Icon: ⚡ with glow
+- Buttons: Pill-shaped, small, outline style
+
+Callout Box (Learning Objective):
+- Background: rgba(0, 240, 255, 0.05)
+- Border: 1px solid rgba(0, 240, 255, 0.2)
+- Border-radius: 8px
+- Icon: 💡 or custom icon
+- Padding: 20px
+
+Table of Contents:
+- Sticky: position: sticky, top: 100px
+- Active section: Neon cyan with glow
+- Smooth scroll on click
+- Progress indicator (% scrolled through article)
+4.6 Dashboard (User Dashboard)
+text
+
+┌─────────────────────────────────────────────────────────────────┐
+│  Dashboard             [Search labs...🔍]          [🔔][👤]     │
+├────────┬────────────────────────────────────────────────────────┤
+│        │  Welcome back, Alex 👋                                 │
+│  MENU  │  Level 24 • Operator                                   │
+│        │                                                         │
+│  🏠 Home│  ┌──────────────────────────────────────────────────┐ │
+│  📚 Paths│ │ Your Learning Streak: 🔥 12 Days               │ │
+│  🎯 Labs│ │ ████████████░░░░░░░░ 245/365 to next level     │ │
+│  🏆 CTFs│ └──────────────────────────────────────────────────┘ │
+│  👥 Team│                                                        │
+│  📊 Stats│ ┌──────────┐ ┌──────────┐ ┌──────────┐             │
+│        │  │ Labs     │ │ XP This  │ │ Rank     │             │
+│        │  │ Completed│ │ Week     │ │ Global   │             │
+│        │  │   47     │ │ 1,240    │ │  #342    │             │
+│        │  └──────────┘ └──────────┘ └──────────┘             │
+│        │                                                        │
+│        │  Continue Learning                                     │
+│        │  ┌───────────────────────────────────────┐            │
+│        │  │ [Lab thumbnail]                       │            │
+│        │  │ Active Directory Attacks • 67% done   │            │
+│        │  │ [Resume →]                            │            │
+│        │  └───────────────────────────────────────┘            │
+│        │                                                        │
+│        │  Recommended For You                                  │
+│        │  [Lab card] [Lab card] [Lab card]                     │
+│        │                                                        │
+└────────┴────────────────────────────────────────────────────────┘
+
+Specifications:
+
+Sidebar:
+- Width: 240px
+- Background: var(--bg-depth-2)
+- Border-right: 1px solid var(--border-subtle)
+- Icons: 20px, cyan on hover
+- Active item: Background glow, cyan text
+
+Top Stats Cards (Small cards):
+- Background: Glassmorphism
+- Border: Subtle glow
+- Number: 32px, bold, gradient
+- Label: 12px, uppercase, tertiary color
+- Hover: Lift effect
+
+Streak Card:
+- Prominent, gradient border
+- Fire emoji animated
+- Progress bar: Gradient fill
+- Background: Subtle pattern
+
+Continue Learning Card:
+- Larger, hero-style
+- Thumbnail: Blurred preview of lab
+- Progress ring: Circular, animated
+- Resume button: Primary CTA
+
+Recommended Section:
+- Horizontal scroll on mobile
+- Grid on desktop
+- Standard lab cards (from 4.4)
+4.7 Leaderboard
+text
+
+┌─────────────────────────────────────────────────────────────────┐
+│  🏆 Leaderboard                                                 │
+│  [Global] [Weekly] [Your Cohort] [By Topic ▼]                  │
+├──────┬──────────────────────────────┬──────────┬───────┬───────┤
+│ Rank │ User                         │ Level    │ XP    │ Streak│
+├──────┼──────────────────────────────┼──────────┼───────┼───────┤
+│  🥇  │ [Avatar] CyberNinja          │ 67       │ 45.2K │  🔥89 │
+│  🥈  │ [Avatar] GhostHunter         │ 64       │ 42.1K │  🔥72 │
+│  🥉  │ [Avatar] RedTeamRacer        │ 61       │ 39.8K │  🔥65 │
+│   4  │ [Avatar] ByteBandit          │ 58       │ 36.4K │  🔥58 │
+│ ...  │                              │          │       │       │
+│  342 │ [Avatar] YOU ← (highlighted) │ 24       │ 12.3K │  🔥12 │
+│ ...  │                              │          │       │       │
+└──────┴──────────────────────────────┴──────────┴───────┴───────┘
+
+Specifications:
+
+Top 3:
+- Larger row height
+- Medal emoji or custom icon
+- Background: Subtle glow (gold, silver, bronze)
+- Avatar: Larger, glowing border
+
+User's Row:
+- Highlighted: Background var(--neon-cyan) with opacity
+- Sticky: Always visible (scrolls into view)
+- Arrow indicator: YOU ←
+
+Avatar:
+- Hexagonal frame
+- 40px (top 3), 32px (others)
+- Border: Level-based color
+
+Level Display:
+- Circular badge
+- Gradient background based on tier
+- Font: Bold, 14px
+
+XP:
+- Formatted: 45.2K not 45200
+- Color: Golden for top 10
+
+Streak:
+- Fire emoji + number
+- Color intensity based on streak length
+- Pulse animation for 7+ days
+
+Table:
+- Zebra striping (very subtle)
+- Hover: Row highlight
+- Sortable columns (click header)
+- Infinite scroll or pagination
+4.8 Lab Environment (Active Lab View)
+text
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ← Exit Lab    SQL Injection Challenge #1         [?] [⚙]  3:42│
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ Objective:                                                 │ │
+│  │ Exploit the login form to gain admin access.              │ │
+│  │ Flag format: GV{...}                                       │ │
+│  └────────────────────────────────────────────────────────────┘ │
+│                                                                  │
+│  ┌────────────────┬────────────────────────────────────────────┐│
+│  │                │  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓  ││
+│  │  [Lab Info]    │  ┃ root@target:~# ls -la              ┃  ││
+│  │  [Hints 0/3]   │  ┃ total 48                           ┃  ││
+│  │  [Submit Flag] │  ┃ drwxr-xr-x 5 root root 4096...    ┃  ││
+│  │  [Reset Lab]   │  ┃ -rw-r--r-- 1 root root  220...    ┃  ││
+│  │                │  ┃ ...                                ┃  ││
+│  │  Target Info:  │  ┃ root@target:~# █                   ┃  ││
+│  │  IP: 10.10.1.42│  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  ││
+│  │  OS: Ubuntu    │                                          ││
+│  │  Ports: 80,22  │  [Full Screen] [Download .ovpn]          ││
+│  │                │                                          ││
+│  │  Your Progress:│                                          ││
+│  │  ████░░░░ 35%  │                                          ││
+│  └────────────────┴────────────────────────────────────────────┘│
+│                                                                  │
+│  [📝 Take Notes] [🚩 Submit: ___________________] [Submit]      │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+
+Specifications:
+
+Top Bar:
+- Background: var(--bg-depth-2)
+- Height: 60px
+- Exit: Confirmation modal on click
+- Lab Name: Center, bold
+- Timer: Running clock, changes to red under 5min (if timed)
+- Settings: Lab controls (reset, report issue)
+
+Objective Box:
+- Background: var(--bg-depth-3) with cyan left border
+- Clear, concise task
+- Flag format hint
+- Can expand for more details
+
+Layout:
+- Left Sidebar: 320px, fixed
+- Terminal: Fills remaining space
+- Resizable divider
+
+Left Sidebar:
+- Tabs: Info / Hints / Notes
+- Info tab: Target details, your VPN IP, cheat sheet
+- Hints: 
+  - Locked until requested
+  - Cost: -50 XP per hint
+  - Progressive disclosure
+- Notes: Markdown editor, auto-saved
+
+Terminal:
+- Full xterm.js implementation
+- Background: Pure black
+- Text: #00FF41 or user-customizable
+- Tabs for multiple sessions
+- Copy/paste enabled
+- Search in output
+- Font size controls
+
+Action Bar (Bottom):
+- Notes button: Opens modal
+- Submit flag: 
+  - Input field, auto-focus on paste
+  - Green glow on correct submission
+  - Red shake on incorrect
+  - Rate limit: 1 attempt per 30 sec (prevent brute force)
+- Submit button: Primary CTA style
+
+Progress Indicator:
+- Shows estimated completion based on:
+  - Time spent
+  - Objectives checked off (if multi-step)
+  - Typical solve time
+4.9 CTF Event Page
+text
+
+┌─────────────────────────────────────────────────────────────────┐
+│                    🏆 WEEKLY CTF #47                            │
+│                   "Web Exploitation Week"                       │
+│                                                                  │
+│           ⏰ Ends in: 23h 14m 32s                               │
+│                                                                  │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │  Live Scoreboard                               [Auto-refresh]│ │
+│  ├──────┬─────────────────┬───────┬──────────────────────────┤ │
+│  │   1  │ NightHawk       │ 2,450 │ ████████████████████░░░░ │ │
+│  │   2  │ CyberPhantom    │ 2,100 │ ████████████████░░░░░░░░ │ │
+│  │   3  │ YOU             │ 1,850 │ ██████████████░░░░░░░░░░ │ │
+│  │  ... │                 │       │                          │ │
+│  └──────┴─────────────────┴───────┴──────────────────────────┘ │
+│                                                                  │
+│  Challenges                                        Your Progress │
+│  ┌──────────────────────────────────────────┐                   │
+│  │ [✓] Easy - Login Bypass          100 pts │                   │
+│  │ [✓] Easy - Cookie Manipulation   100 pts │                   │
+│  │ [ ] Medium - XSS to RCE          250 pts │  🏆 3/7 Solved    │
+│  │ [ ] Medium - JWT Forgery         250 pts │  🎯 550 pts       │
+│  │ [🔒] Hard - PHP Deserialization  500 pts │  📊 Rank #3       │
+│  │ [🔒] Hard - SSRF Chain           500 pts │                   │
+│  │ [🔒] Insane - 0-day Hunt       1,000 pts │                   │
+│  └──────────────────────────────────────────┘                   │
+│                                                                  │
+│  [Discord Chat] [Announcements] [Rules]                         │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+
+Specifications:
+
+Hero:
+- Large title, glowing
+- Countdown: Large, animated numbers
+- Background: Animated particles or waveform
+
+Scoreboard:
+- Real-time updates (WebSocket)
+- Auto-refresh toggle
+- Top 10 visible, "Show More" to expand
+- User's rank always visible
+- Progress bars: Dynamic, fill based on score
+- First blood indicator: 🩸 icon for first solver
+
+Challenges List:
+- Card-based layout
+- Checkmark: Green, animated on solve
+- Lock icon: Unlocks after prerequisite
+- Difficulty color-coded:
+  - Easy: Green
+  - Medium: Yellow
+  - Hard: Red
+  - Insane: Rainbow holographic
+- Points: Large, bold
+- Hover: Expand to show description
+- Click: Opens challenge modal
+
+Sidebar Progress:
+- Your stats in a sticky card
+- Trophy icon animated on solve
+- Confetti effect when you rank up
+
+Bottom Tabs:
+- Discord: Embedded Discord widget or link
+- Announcements: Live feed of CTF updates
+- Rules: Modal with competition rules
+5. ANIMATIONS & MICRO-INTERACTIONS
+5.1 Hover Effects
+CSS
+
+/* Card Lift */
+.card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.3);
+  border-color: var(--neon-cyan);
+}
+
+/* Button Glow Pulse */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Text Gradient Shift */
+.gradient-text {
+  background: var(--gradient-holographic);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+5.2 Loading States
+CSS
+
+/* Skeleton Loader (for lab cards while loading) */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-depth-3) 25%,
+    var(--bg-depth-4) 50%,
+    var(--bg-depth-3) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Spinner (for actions) */
+.spinner {
+  border: 3px solid var(--bg-depth-3);
+  border-top: 3px solid var(--neon-cyan);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+5.3 Success Animations
+CSS
+
+/* Flag Submit Success */
+@keyframes success-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 148, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(0, 255, 148, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 148, 0); }
+}
+
+.success-input {
+  border-color: var(--success);
+  animation: success-pulse 0.6s;
+}
+
+/* Confetti Burst (on level up, CTF win) */
+/* Use canvas-confetti library or CSS particles */
+5.4 Page Transitions
+CSS
+
+/* Fade-up on route change */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+6. RESPONSIVE DESIGN
+Breakpoints
+CSS
+
+/* Mobile First Approach */
+--breakpoint-sm: 640px;   /* Small tablets, large phones */
+--breakpoint-md: 768px;   /* Tablets */
+--breakpoint-lg: 1024px;  /* Desktops */
+--breakpoint-xl: 1280px;  /* Large desktops */
+--breakpoint-2xl: 1536px; /* Extra large screens */
+Key Responsive Rules
+Element	Desktop	Tablet	Mobile
+Hero Title	72px	48px	36px
+Nav	Horizontal	Horizontal	Hamburger menu
+Lab Cards Grid	3 columns	2 columns	1 column
+Dashboard Sidebar	Visible	Collapsible	Bottom nav
+Terminal	Split view	Full width tab	Full width
+Blog Max Width	840px	100% - 40px	100% - 20px
+7. ACCESSIBILITY
+CSS
+
+/* Focus States (Keyboard Navigation) */
+*:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --border-subtle: rgba(255, 255, 255, 0.3);
+    --text-secondary: #E0E0E0;
+  }
+}
+ARIA & Semantic HTML
+All interactive elements have proper ARIA labels
+Landmark regions (nav, main, aside, footer)
+Skip to main content link
+Color contrast ratios: AAA for text, AA for UI elements
+All images have alt text
+Form inputs have labels
+8. DESIGN ASSETS NEEDED
+Icon Set (Custom or FontAwesome Pro + Custom)
+text
+
+🏠 Home
+📚 Learning Paths
+🎯 Labs
+🏆 CTF/Competitions
+👥 Community
+📊 Stats/Progress
+🔔 Notifications
+⚙️ Settings
+🚀 Launch Lab
+🔒 Locked Content
+✓ Completed
+⏱ Timer
+🔥 Streak
+💡 Hint
+⚡ Challenge
+🎖 Badge
+📝 Notes
+🚩 Flag
+🔍 Search
+Illustrations
+3D terminal mockup (hero)
+Abstract hexagonal patterns
+Floating code snippets
+Circuit board backgrounds
+Holographic effects
+Badge/achievement artwork
+Empty states (no labs completed yet, no CTFs available)
+Animations (Lottie or After Effects)
+Success celebration (flag submission)
+Loading states
+Level up animation
+Streak milestone celebration
+First lab completion
+Badge unlock
+9. IMPLEMENTATION STACK
+Recommended Frontend Stack
+JavaScript
+
+// Core
+Next.js 14+ (App Router)
+React 18+
+TypeScript
+
+// Styling
+Tailwind CSS (with custom config for GV design system)
+CVA (class-variance-authority) for component variants
+Framer Motion (animations)
+
+// UI Components
+Headless UI or Radix UI (accessible primitives)
+Custom components built on top
+
+// Terminal
+xterm.js
+xterm-addon-fit
+xterm-addon-web-links
+
+// Charts/Visualization
+Recharts (for stats dashboards)
+D3.js (for skill graph radar)
+
+// 3D (if needed)
+Three.js (for landing page 3D elements)
+
+// Utilities
+clsx / cn utility for conditional classes
+date-fns (date formatting)
+react-hook-form + zod (forms + validation)
+Design Token System (Tailwind Config)
+JavaScript
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        ghost: {
+          bg: {
+            1: '#0A0E1A',
+            2: '#0F1420',
+            3: '#151A28',
+            4: '#1A2033',
+          },
+          neon: {
+            cyan: '#00F0FF',
+            blue: '#0084FF',
+            purple: '#8B5CF6',
+          },
+          success: '#00FF94',
+          warning: '#FFB800',
+          error: '#FF3366',
+          text: {
+            primary: '#FFFFFF',
+            secondary: '#B8C5D6',
+            tertiary: '#6B7B94',
+          }
+        }
+      },
+      fontFamily: {
+        display: ['Space Grotesk', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+        accent: ['Orbitron', 'sans-serif'],
+      },
+      boxShadow: {
+        'glow-cyan': '0 0 20px rgba(0, 240, 255, 0.3)',
+        'glow-purple': '0 0 20px rgba(139, 92, 246, 0.3)',
+        'card': '0 8px 32px rgba(0, 0, 0, 0.4)',
+      },
+      animation: {
+        'gradient-shift': 'gradient-shift 3s ease infinite',
+        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+        'shimmer': 'shimmer 3s linear infinite',
+      },
+      backgroundImage: {
+        'hex-pattern': "url('/patterns/hex-grid.svg')",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      }
+    }
+  }
+}
+10. FIGMA/DESIGN FILE STRUCTURE
+text
+
+GhostVector Academy Design System
+│
+├── 🎨 Foundations
+│   ├── Colors
+│   ├── Typography
+│   ├── Spacing
+│   ├── Shadows & Effects
+│   └── Grid System
+│
+├── 🧩 Components
+│   ├── Buttons (Primary, Secondary, Ghost, Danger)
+│   ├── Inputs (Text, Search, Select, Textarea)
+│   ├── Cards (Lab, Feature, Stat, Blog)
+│   ├── Navigation (Top Nav, Sidebar, Breadcrumbs)
+│   ├── Badges & Pills
+│   ├── Progress Bars
+│   ├── Modals
+│   ├── Tooltips
+│   ├── Leaderboard Rows
+│   └── Terminal Component
+│
+├── 📄 Pages (Full Mockups)
+│   ├── Landing Page
+│   ├── Dashboard
+│   ├── Lab Library
+│   ├── Active Lab View
+│   ├── Interactive Blog
+│   ├── Learning Path
+│   ├── CTF Event
+│   ├── Profile
+│   ├── Settings
+│   └── Auth (Sign In, Sign Up)
+│
+├── 📱 Responsive Views
+│   ├── Mobile (375px)
+│   ├── Tablet (768px)
+│   └── Desktop (1440px)
+│
+└── 🎬 Prototypes
+    ├── Onboarding Flow
+    ├── Lab Launch Flow
+    ├── Flag Submission
+    └── Level Up Animation
+11. BRAND VOICE & COPYWRITING TONE
+Voice Attributes
+Confident but not arrogant
+
+We're experts, but we remember what it's like to be a beginner
+Direct and clear
+
+No jargon unless necessary. When we use jargon, we explain it.
+Motivating without being cheesy
+
+"You got this" not "You're a rockstar ninja unicorn"
+Hacker aesthetic, professional delivery
+
+We embrace the hacker culture but we're building careers, not chaos
+Example Copy
+Context	Bad	Good
+Hero CTA	"Start Your Journey"	"Start Learning Free"
+Lab completed	"Congratulations!"	"Lab compromised. +350 XP"
+Error message	"Oops, something went wrong"	"Connection to lab failed. Retrying..."
+Empty state	"Nothing here yet!"	"No labs started yet. Browse the lab library."
+Upgrade prompt	"Go Premium!"	"Unlock unlimited labs with Pro"
+12. LOGO CONCEPTS
+Primary Logo Mark
+text
+
+Option 1: "GV" Monogram
+   ██████╗ ██╗   ██╗
+  ██╔════╝ ██║   ██║
+  ██║  ███╗██║   ██║
+  ██║   ██║╚██╗ ██╔╝
+  ╚██████╔╝ ╚████╔╝ 
+   ╚═════╝   ╚═══╝   
+
+- Letters interconnected (showing connection)
+- Negative space forms a subtle ">" (forward movement)
+- Neon cyan glow on dark background
+
+Option 2: Hexagonal "G"
+   ╱‾‾‾‾‾╲
+  ╱  ██  ╲
+  │ ██    │
+  │ ████  │
+  ╲  ██  ╱
+   ╲____╱
+
+- G-shaped design within hexagon
+- Represents both "Ghost" and technical/honeycomb structure
+- Clean, geometric
+
+Option 3: Abstract Vector Arrow
+  ───→ Ghost
+     ╲
+      →Vector
+
+- Arrow pointing forward (progress, direction)
+- Glitch effect on "Ghost" (appears/disappears)
+- Solid on "Vector" (purpose, goal)
+Full Lockup
+text
+
+┌─────────────────────────────┐
+│   [Icon]  GHOSTVECTOR      │
+│           ACADEMY          │
+└─────────────────────────────┘
+
+Icon: One of the above
+Wordmark: Space Grotesk Bold, all caps
+Spacing: Icon → Wordmark gap is icon width / 2
+FINAL NOTES
+This design system creates a premium, modern cybersecurity learning platform that feels:
+
+Professional enough for employers to take seriously
+Cool enough for hackers to respect
+Accessible enough for beginners to feel welcome
+Technical enough to attract serious practitioners
+The HexaCore aesthetic you referenced is perfect for this — it conveys sophistication, cutting-edge technology, and security expertise. We're taking that visual language and applying it to an educational platform, which is unique in this space.
