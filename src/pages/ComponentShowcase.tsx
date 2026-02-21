@@ -5,6 +5,10 @@ import { LinearProgress, CircularProgress } from '../components/ui/ProgressBar';
 import Skeleton from '../components/ui/Skeleton';
 import Modal from '../components/ui/Modal';
 import Tooltip from '../components/ui/Tooltip';
+import { TextInput, SearchInput, SelectInput, TextArea } from '../components/ui/Input';
+import Spinner from '../components/ui/Spinner';
+import SuccessPulse from '../components/ui/SuccessPulse';
+import Confetti from '../components/ui/Confetti';
 import LabCard from '../components/LabCard';
 import Dashboard from '../components/Dashboard';
 import Leaderboard from '../components/Leaderboard';
@@ -15,6 +19,9 @@ import './ComponentShowcase.css';
 
 const ComponentShowcase = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [searchVal, setSearchVal] = useState('');
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showConfetti, setShowConfetti] = useState(false);
 
     return (
         <div className="showcase">
@@ -70,6 +77,54 @@ const ComponentShowcase = () => {
                         </div>
                     </div>
 
+                    {/* Inputs */}
+                    <div className="showcase__block">
+                        <h3 className="showcase__block-title">Inputs</h3>
+                        <div className="showcase__progress-grid">
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                <TextInput
+                                    label="Username"
+                                    placeholder="Enter your username"
+                                    icon={
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                            <circle cx="12" cy="7" r="4" />
+                                        </svg>
+                                    }
+                                />
+                                <TextInput
+                                    label="Email"
+                                    placeholder="ghost@vector.io"
+                                    error="Invalid email address"
+                                />
+                                <SearchInput
+                                    placeholder="Search labs, blogs, challenges..."
+                                    value={searchVal}
+                                    onChange={(e) => setSearchVal(e.target.value)}
+                                    onClear={() => setSearchVal('')}
+                                />
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                <SelectInput
+                                    label="Difficulty"
+                                    options={[
+                                        { value: '', label: 'Select difficulty...' },
+                                        { value: 'ghost', label: 'Ghost' },
+                                        { value: 'shadow', label: 'Shadow' },
+                                        { value: 'phantom', label: 'Phantom' },
+                                        { value: 'specter', label: 'Specter' },
+                                        { value: 'vector', label: 'Vector' },
+                                    ]}
+                                />
+                                <TextArea
+                                    label="Write-up Notes"
+                                    placeholder="Describe your approach..."
+                                    rows={4}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Skeletons */}
                     <div className="showcase__block">
                         <h3 className="showcase__block-title">Skeleton Loaders</h3>
@@ -108,6 +163,37 @@ const ComponentShowcase = () => {
                                 <button className="btn btn-primary" onClick={() => setIsModalOpen(false)}>Launch Lab</button>
                             </div>
                         </Modal>
+                    </div>
+
+                    {/* Spinners & Animations */}
+                    <div className="showcase__block">
+                        <h3 className="showcase__block-title">Spinners &amp; Animations</h3>
+                        <div className="showcase__row" style={{ gap: '2rem', alignItems: 'center' }}>
+                            <div style={{ textAlign: 'center' }}>
+                                <Spinner size="sm" />
+                                <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>Small</p>
+                            </div>
+                            <div style={{ textAlign: 'center' }}>
+                                <Spinner size="md" glow />
+                                <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>Medium + Glow</p>
+                            </div>
+                            <div style={{ textAlign: 'center' }}>
+                                <Spinner size="lg" glow />
+                                <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>Large + Glow</p>
+                            </div>
+                            <div style={{ textAlign: 'center' }}>
+                                <button className="btn btn-primary" onClick={() => setShowSuccess(true)}>
+                                    Trigger Success
+                                </button>
+                                <SuccessPulse trigger={showSuccess} onComplete={() => setShowSuccess(false)} />
+                            </div>
+                            <div style={{ textAlign: 'center' }}>
+                                <button className="btn btn-primary" onClick={() => setShowConfetti(true)}>
+                                    🎉 Confetti!
+                                </button>
+                                <Confetti trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
+                            </div>
+                        </div>
                     </div>
                 </section>
 

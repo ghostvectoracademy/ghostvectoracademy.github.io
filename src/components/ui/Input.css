@@ -1,0 +1,242 @@
+/* ═══════════════════════════════════════════
+   Input Components — GhostVector Design System
+   ═══════════════════════════════════════════ */
+
+/* ── Base Input ── */
+.gv-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.gv-input-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+.gv-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.gv-input {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.gv-input::placeholder {
+    color: var(--text-muted);
+}
+
+.gv-input:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.gv-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-subtle), 0 0 20px rgba(79, 70, 229, 0.1);
+}
+
+/* ── With Icon ── */
+.gv-input-wrapper--has-icon .gv-input {
+    padding-left: 2.5rem;
+}
+
+.gv-input-icon {
+    position: absolute;
+    left: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    transition: color 0.25s ease;
+}
+
+.gv-input:focus~.gv-input-icon,
+.gv-input-wrapper:focus-within .gv-input-icon {
+    color: var(--accent);
+}
+
+/* ── Error State ── */
+.gv-input--error {
+    border-color: #ef4444;
+}
+
+.gv-input--error:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15), 0 0 20px rgba(239, 68, 68, 0.08);
+}
+
+.gv-input-error {
+    font-size: 0.7rem;
+    color: #ef4444;
+    margin-top: 0.2rem;
+}
+
+/* ── Sizes ── */
+.gv-input--sm {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.gv-input--lg {
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+/* ── Search Input ── */
+.gv-search {
+    position: relative;
+}
+
+.gv-search .gv-input {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.gv-search__icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    display: flex;
+    pointer-events: none;
+    transition: color 0.25s ease;
+}
+
+.gv-search:focus-within .gv-search__icon {
+    color: var(--accent);
+}
+
+.gv-search__clear {
+    position: absolute;
+    right: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.gv-search__clear:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Select ── */
+.gv-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.gv-select {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    transition: all 0.25s ease;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.gv-select:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.gv-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-subtle), 0 0 20px rgba(79, 70, 229, 0.1);
+}
+
+.gv-select option {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+.gv-select__chevron {
+    position: absolute;
+    right: 0.85rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    display: flex;
+    transition: color 0.25s ease;
+}
+
+.gv-select:focus~.gv-select__chevron {
+    color: var(--accent);
+}
+
+/* ── Textarea ── */
+.gv-textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    transition: all 0.25s ease;
+    outline: none;
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+.gv-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.gv-textarea:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.gv-textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-subtle), 0 0 20px rgba(79, 70, 229, 0.1);
+}
+
+.gv-textarea--error {
+    border-color: #ef4444;
+}
+
+.gv-textarea--error:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* ── Disabled State ── */
+.gv-input:disabled,
+.gv-select:disabled,
+.gv-textarea:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}

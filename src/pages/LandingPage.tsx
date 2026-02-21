@@ -11,7 +11,7 @@ const LandingPage = () => {
     return (
         <>
             <Navbar />
-            <main>
+            <main id="main-content" aria-label="GhostVector Academy Landing Page">
                 <Hero />
                 <Problems />
                 <Features />

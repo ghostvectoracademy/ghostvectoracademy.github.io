@@ -1,0 +1,39 @@
+/* ═══════════════════════════════════════
+   Spinner — GhostVector Design System
+   ═══════════════════════════════════════ */
+
+.gv-spinner {
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    animation: gv-spin 0.7s linear infinite;
+}
+
+.gv-spinner--sm {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+}
+
+.gv-spinner--md {
+    width: 28px;
+    height: 28px;
+    border-width: 2.5px;
+}
+
+.gv-spinner--lg {
+    width: 44px;
+    height: 44px;
+    border-width: 3px;
+}
+
+.gv-spinner--glow {
+    filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+
+@keyframes gv-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,337 @@
+# GhostVector Academy — Master To-Do List
+
+> Synthesized from [prd.docx](file:///d:/Jogi/Projects/GhostVector/prd.docx) and [design.docx](file:///d:/Jogi/Projects/GhostVector/design.docx)
+
+---
+
+## Phase 0: Pre-Launch Foundation
+
+### Branding & Identity
+- [ ] Finalize logo: choose between GV Monogram, Hexagonal G, or Abstract Vector Arrow
+- [ ] Finalize domain name *(deferred — building locally for now)*
+- [ ] Create full lockup (icon + "GHOSTVECTOR ACADEMY" wordmark in Space Grotesk Bold)
+- [ ] Define brand voice guidelines (confident, direct, motivating, professional-hacker tone)
+- [ ] Write tagline — finalists: *"Forge Your Skills. Not Your Certificates."*, *"No Writeups. No Shortcuts. Real Skills."*
+
+### Social & Community Setup
+- [ ] Set up Twitter/X, LinkedIn, Reddit presence
+- [ ] Launch Discord community for early adopters
+- [ ] Begin content marketing (share free interactive blog snippets)
+
+---
+
+## Phase 1: Landing Page & Waitlist *(Immediately)*
+
+- [x] Build landing page (Vite + React + TypeScript, local dev)
+- [x] Implement all sections: Navbar, Hero, Problems, Features, How It Works, Pricing, Waitlist, Footer
+- [ ] Hook up waitlist email collection (backend/API integration)
+- [ ] SEO, analytics, and A/B testing *(deferred to deployment)*
+
+---
+
+## Phase 2: Design System & Component Library
+
+### Foundations
+- [x] Implement full color system (CSS custom properties)
+  - [x] Background layers (`--bg-depth-1` through `--bg-depth-4`)
+  - [x] Neon accents (cyan `#00F0FF`, blue `#0084FF`, purple `#8B5CF6`)
+  - [x] Status colors (success, warning, error, info)
+  - [x] Text hierarchy (primary, secondary, tertiary, disabled)
+  - [x] Surface & border tokens
+- [x] Implement gradient system (hero, card glow, button, holographic shimmer)
+- [x] Set up typography stack
+  - [x] Display: **Space Grotesk**
+  - [x] Body: **Inter**
+  - [x] Code/Terminal: **JetBrains Mono**
+  - [x] Accent/Logo: **Orbitron**
+- [x] Define type scale (display, headings, body, mono)
+- [x] Define spacing system & grid system
+- [x] ~~Configure Tailwind with GhostVector design tokens~~ *(N/A — using vanilla CSS)*
+
+### Components (from design.docx §4)
+- [x] **Navigation Bar** — sticky, glassmorphism, hide/show on scroll, hexagonal avatar
+- [x] **Hero Section** — animated hex grid, gradient text, floating 3D terminal, CTA buttons
+- [x] **Feature Cards** — glassmorphism, hover lift + glow, icon with hex frame
+- [x] **Lab Card** — difficulty badge, status badge, progress bar, stats row, launch button
+- [x] **Interactive Blog Layout** — sticky TOC, terminal embed, challenge box, callout box
+- [x] **Dashboard** — sidebar nav, stats cards, streak card, continue learning, recommended
+- [x] **Leaderboard** — top-3 highlight, user's row sticky, sortable columns, hexagonal avatars
+- [x] **Lab Environment** — split-pane (info + terminal), objective box, hints, flag submit, timer
+- [x] **CTF Event Page** — countdown, live scoreboard, challenge list, progress sidebar
+- [x] **Buttons** (Primary gradient, secondary, ghost, danger) with ripple/glow effects
+- [x] **Inputs** (Text, search, select, textarea) with focus glow
+- [x] **Badges & Pills** (difficulty tiers, status indicators)
+- [x] **Progress Bars** (linear gradient fill, circular/ring)
+- [x] **Modals** (confirmation, challenge, rules)
+- [x] **Tooltips**
+
+### Animations & Micro-Interactions (§5)
+- [x] Card hover lift + glow
+- [x] Button glow pulse + ripple on click
+- [x] Gradient text shift animation
+- [x] Skeleton loaders (loading state for cards)
+- [x] Spinner (action loading)
+- [x] Success pulse animation (flag submit)
+- [x] Confetti burst (level up, CTF win)
+- [x] Page fade-up transitions
+
+### Responsive Design (§6)
+- [x] Breakpoints: 640 / 768 / 1024 / 1280 / 1536px
+- [x] Hero title scaling (72 → 48 → 36px)
+- [x] Nav → hamburger on mobile
+- [x] Cards grid → 3 → 2 → 1 columns
+- [x] Dashboard sidebar → collapsible → bottom nav
+- [x] Terminal view → split → full width
+- [x] Blog max-width adjustments
+
+### Accessibility (§7)
+- [x] Focus-visible outlines (cyan)
+- [x] Reduced motion media query
+- [x] High contrast mode support
+- [x] ARIA labels on all interactive elements
+- [x] Semantic HTML (landmark regions, skip links)
+- [x] AAA color contrast for text, AA for UI
+- [x] Alt text for all images & form labels
+
+### Design Assets (§8)
+- [ ] Custom icon set (home, paths, labs, CTF, community, stats, etc.) *(deferred — Phase 3)*
+- [ ] 3D terminal mockup illustration (hero) *(deferred — Phase 3)*
+- [x] Hexagonal pattern SVG (background)
+- [x] Circuit board / floating code snippet backgrounds
+- [ ] Badge/achievement artwork *(deferred — Phase 3)*
+- [ ] Empty state illustrations *(deferred — Phase 3)*
+- [x] ~~Lottie animations~~ → replaced with pure CSS: Spinner, SuccessPulse, Confetti
+
+---
+
+## Phase 3: Core Platform Architecture
+
+### Frontend
+- [ ] Set up **Next.js 14+** project (App Router, TypeScript)
+- [ ] Configure custom MDX pipeline with embedded React components
+- [ ] Integrate **xterm.js** for in-browser terminal
+- [x] Set up **Framer Motion** for animations
+- [ ] Integrate **Recharts** (stats) and **D3.js** (skill radar)
+- [ ] Integrate **Three.js** for 3D landing elements (optional)
+- [ ] Set up **Headless UI / Radix UI** as accessible primitives
+- [ ] Configure `react-hook-form + zod` for form validation
+
+### Backend Services
+- [ ] **Auth Service** — Clerk or custom (JWT + OAuth2, SSO-ready)
+- [ ] **Content Service** — CMS + MDX rendering
+- [ ] **Lab Orchestration Service** — K8s custom CRDs, container lifecycle
+- [ ] **Gamification Service** — XP, levels, streaks, badges, leaderboards
+- [ ] **Community Service** — forum, chat, matchmaking
+- [ ] **API Gateway** — Kong or custom
+
+### Infrastructure
+- [ ] **Database**: PostgreSQL (users, progress, scoring, content metadata)
+- [ ] **Cache/Real-time**: Redis (sessions, leaderboards, lab state)
+- [ ] **Object Storage**: S3/R2 (content assets, lab templates, recordings)
+- [ ] **CDN**: Cloudflare
+- [ ] **Monitoring**: Prometheus + Grafana + Sentry
+- [x] **CI/CD**: GitHub Actions + ArgoCD
+
+### Lab Infrastructure
+- [ ] Kubernetes cluster (auto-scaling node groups)
+- [ ] Network policies for per-user isolation
+- [ ] WireGuard VPN gateway / Apache Guacamole (browser access)
+- [ ] Dynamic flag injection sidecar
+- [ ] Lab template system (YAML definitions with randomization params)
+- [ ] Vulnerability injection via Ansible playbooks
+- [ ] Auto-shutdown: 2h inactivity, spot instances for cost savings
+- [ ] Target: **lab spin-up < 60 seconds**
+
+### Payments
+- [ ] Stripe integration (subscriptions + one-time payments)
+- [ ] Free (Recon), Pro ($19/mo), Elite ($39/mo) tier logic
+- [ ] Cohort program payment flows ($399–$1,299)
+
+---
+
+## Phase 4: P0 Features *(Launch Features)*
+
+### Feature 1: Interactive Blogs (Living Documents)
+- [ ] `IB-01` Embedded terminal (WebSocket → isolated Docker container)
+- [ ] `IB-02` Inline challenges (solve-to-proceed or skip with penalty)
+- [ ] `IB-03` Branching paths (attacker vs. defender perspective)
+- [ ] `IB-04` Knowledge checkpoints (MCQ/short-answer with adaptive explanations)
+- [ ] `IB-05` Adaptive depth toggle ("ELI5" ↔ "Give me the RFC")
+- [ ] `IB-06` Progress persistence (resume where left off, terminal state 24h)
+- [ ] `IB-07` Social annotations (highlight + comment à la Genius/Medium)
+- [ ] `IB-08` Linked lab ("Go deeper in the lab →")
+- [ ] `IB-09` Estimated reading/doing time display
+- [ ] `IB-10` Content tagging (topic, difficulty, red/blue, MITRE ATT&CK, career path)
+- [ ] Build custom CMS with drag-and-drop component authoring
+- [ ] Container lifecycle: spin up on interaction, auto-terminate 30min inactivity
+
+### Feature 2: Adaptive Dynamic Labs (ADL)
+- [ ] `ADL-01` Dynamic flag generation (unique per user per instance, server-side validation)
+- [ ] `ADL-02` Parameterized vulnerability injection (pool-based randomization)
+- [ ] `ADL-03` Difficulty adaptation (tracks solve rate, time, hint usage)
+- [ ] `ADL-04` Tiered hint system (Nudge → Direction → Walkthrough, each costs XP)
+- [ ] `ADL-05` Multi-machine labs (pivot scenarios)
+- [ ] `ADL-06` Time tracking (improvement graphs, leaderboard feed)
+- [ ] `ADL-07` Lab report generation (pentest-style template → portfolio piece)
+- [ ] `ADL-08` Reset / fresh instance (newly randomized)
+- [ ] `ADL-09` Lab categories (13 categories from Network to IoT Security)
+- [ ] `ADL-10` Environment types (single, multi-machine, AD domain, cloud sim, microservices)
+- [ ] Define 5 difficulty tiers: Ghost → Shadow → Phantom → Specter → Vector
+- [ ] MVP: Start with "semi-dynamic" (10 variants per template), evolve to fully procedural
+
+### Feature 3: Gamification & Progression
+- [ ] `GS-01` XP system (labs, blogs, challenges, CTFs, helping others, streaks)
+- [ ] `GS-02` Skill graph (radar chart across domains)
+- [ ] `GS-03` Level system (1–100: Initiate → … → Legend)
+- [ ] `GS-04` Leaderboards (global, weekly, monthly, by-topic, by-cohort; anti-gaming)
+- [ ] `GS-05` Streaks (daily counter, 7/30/100/365-day rewards, 1 freeze/week)
+- [ ] `GS-06` Badges/achievements (First Blood, Polyglot, Mentor, Night Owl, etc.)
+- [ ] `GS-07` Seasonal rankings (quarterly reset, exclusive rewards)
+- [ ] `GS-08` Proof-of-Skill credential (verifiable, shareable, employer API)
+
+### Feature 4: Learning Paths (Self-Paced Curriculum)
+- [ ] Build path framework (sequence of blogs, labs, assessments, capstone)
+- [ ] Progress tracking per path with estimated completion time
+- [ ] **Path 1**: Foundations of Cybersecurity (4–6 weeks, beginner)
+- [ ] **Path 2**: Web Application Security (6–8 weeks, intermediate)
+- [ ] Remaining paths (Network Pentesting, SOC Analyst, AD, Cloud, Malware, OSCP) — phases 2-3
+
+---
+
+## Phase 5: P1 Features *(Months 1–6)*
+
+### Feature 5: CTF Events & Competitions
+- [ ] `CTF-01` Weekly mini-CTFs (3–5 challenges, 48h window)
+- [ ] `CTF-02` Monthly themed CTFs (10–15 challenges, 1-week window)
+- [ ] `CTF-03` Quarterly championship (24–48h, team-based, prizes)
+- [ ] `CTF-04` Team formation (create/join, random matching for solos)
+- [ ] `CTF-05` Live scoreboard (real-time via WebSocket, dynamic point values)
+- [ ] `CTF-06` Post-event writeup platform (publish, vote, feature best)
+- [ ] `CTF-07` CTF archive (past challenges become practice content)
+- [ ] `CTF-08` Attack-defense mode *(future)*
+
+### Feature 6: Cohort-Based Learning
+- [ ] `CO-01` Cohort structure (fixed start, 8–16 weeks, 20–40 students)
+- [ ] `CO-02` Live sessions (2–3/week, recorded for async)
+- [ ] `CO-03` In-platform cohort chat
+- [ ] `CO-04` Peer assignments (pair/group labs, peer review)
+- [ ] `CO-05` Mentorship (1–2 mentors per cohort, office hours, career guidance)
+- [ ] `CO-06` Capstone project (full pentest/IR exercise → portfolio report)
+- [ ] `CO-07` Completion credential (verifiable, skill breakdown)
+- [ ] `CO-08` Cohort types: Breaking In, Level Up, Red Team Operator, Blue Team Builder, Cloud Security
+- [ ] Pricing: $399–$1,299 individual; $2,000–$5,000/seat corporate
+
+### Feature 7: Community Features
+- [ ] `CM-01` Forum / Q&A (Stack Overflow-style, tied to labs/content)
+- [ ] `CM-02` Pair hacking (matchmaking, shared terminal, voice chat)
+- [ ] `CM-03` Mentor marketplace (Level 50+ opt-in, future: paid mentorship)
+- [ ] `CM-04` Study groups (create/join, shared progress board)
+- [ ] `CM-05` User writeups (publish, community voting, featured content)
+- [ ] `CM-06` Activity feed (friends' completions, badges, writeups)
+- [ ] `CM-07` User profiles (skill graph, badges, CTF history, portfolio)
+
+---
+
+## Phase 6: P2 Features *(Months 6–12)*
+
+### Feature 8: Assessment & Certification
+- [ ] `AS-01` Skill assessments (timed practical, adaptive difficulty)
+- [ ] `AS-02` Path certification (complete all modules + capstone → GV cert)
+- [ ] `AS-03` Proctored exams *(future: browser lockdown + webcam)*
+- [ ] `AS-04` Employer verification (public URL + API)
+- [ ] `AS-05` Cert prep mode (mapped to OSCP, Security+, CySA+, BTL1, etc.)
+
+---
+
+## Phase 7: Content Production
+
+### Phase 1 Content (Pre-Launch → Month 3)
+- [ ] Write **30 Interactive Blogs** (Foundations + Web Security + Network basics)
+- [ ] Build **50 Adaptive Labs** across 5 categories
+- [ ] Complete **2 Learning Paths** (Foundations, Web App Security)
+- [ ] Test weekly CTF infrastructure
+
+### Phase 2 Content (Month 3–6)
+- [ ] **60 additional** Interactive Blogs
+- [ ] **100 additional** Labs
+- [ ] **3 more** Learning Paths (Network Pentesting, SOC Analyst, AD)
+- [ ] Launch first cohort
+- [ ] Begin monthly CTF events
+
+### Phase 3 Content (Month 6–12)
+- [ ] **100+ additional** Interactive Blogs
+- [ ] **200+ additional** Labs
+- [ ] Complete all **8 launch paths**
+- [ ] Cloud security labs (real AWS sandboxed accounts)
+- [ ] OSCP Prep path
+- [ ] Establish community-contributed content pipeline
+
+### Content Quality Standards
+- [ ] Map all content to industry frameworks (NICE, MITRE ATT&CK)
+- [ ] Lab testing protocol: 3 reviewers (1 beginner, 1 intermediate, 1 expert)
+- [ ] Technical accuracy review by practitioners
+- [ ] Inclusivity & accessibility review
+- [ ] Quarterly content audit process (update/retire outdated content)
+
+---
+
+## Phase 8: Business & Operations
+
+### Team Hiring
+- [ ] **P0**: Full-Stack Engineer (Next.js, TypeScript, PostgreSQL)
+- [ ] **P0**: Infrastructure / DevOps Engineer (K8s, Docker, AWS, WireGuard)
+- [ ] **P0**: Security Content Creator (hands-on practitioner, CTF background)
+- [ ] **P1**: Second Content Creator (blue team / SOC / DFIR focus)
+- [ ] **P1**: UI/UX Designer (dark-mode specialist, gamification UX)
+- [ ] **P1** (Month 2–3): Community Manager
+
+### Revenue Setup
+- [ ] Configure Stripe: Free / Pro ($19/mo or $149/yr) / Elite ($39/mo or $299/yr)
+- [ ] Implement feature gating per tier
+- [ ] Set up cohort payment flows
+- [ ] Plan B2B/enterprise pricing model
+
+### Risk Mitigations
+- [ ] Cost monitoring: track cost per active user
+- [ ] Lab security audit (network isolation, restricted internet, regular pen-testing of orchestration)
+- [ ] Growth control: implement waitlist + invite codes for early months
+
+---
+
+## Phase 9: MVP Launch Checklist
+
+> [!IMPORTANT]
+> The MVP is ready for beta when **all** of these are true:
+
+- [ ] 20+ Interactive Blogs published and tested
+- [ ] 30+ Adaptive Labs operational with dynamic flags (min 5 variants each)
+- [ ] 1 complete Learning Path fully playable (Foundations of Cybersecurity)
+- [ ] User auth, profiles, and progress tracking functional
+- [ ] XP system, basic leaderboard, and streak tracking live
+- [ ] Lab infrastructure handles **50 concurrent users** without degradation
+- [ ] Stripe payment integration for Pro tier functional
+- [ ] Landing page, onboarding flow, and core UX polished
+- [ ] Lab spin-up time **< 60 seconds**
+- [ ] Basic hint system operational
+- [ ] Mobile-responsive reading experience (blogs/progress)
+- [ ] Monitoring and alerting in place
+
+---
+
+## Phase 10: Post-Launch Growth *(Month 12–24)*
+
+- [ ] Mobile companion app
+- [ ] B2B enterprise tier (team dashboards, skill gap analysis, SSO, compliance)
+- [ ] Job board / talent pipeline (placement fees)
+- [ ] Proctored certification exams ($99–$299/attempt)
+- [ ] Merchandise (branded apparel, stickers)
+- [ ] Sponsored CTF events
+- [ ] Cloud-native security labs (real AWS/Azure sandboxes)
+- [ ] Attack-Defense CTF mode
+- [ ] Internationalization (Spanish, Hindi, Arabic)
+- [ ] API for third-party integrations
+- [ ] University & bootcamp partnerships
+
+---
+
+*This is a living document. Revisit every 2 weeks during pre-launch, monthly post-launch.*

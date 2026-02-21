@@ -1,0 +1,208 @@
+/* ═══════════════════════════════════════
+   Confetti Burst — GhostVector Design System
+   Pure CSS confetti for level-up / CTF win
+   ═══════════════════════════════════════ */
+
+.gv-confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.gv-confetti__piece {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 40%;
+    left: 50%;
+    opacity: 0;
+    animation: gv-confetti-burst 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Rectangle pieces */
+.gv-confetti__piece--rect {
+    border-radius: 2px;
+}
+
+/* Circle pieces */
+.gv-confetti__piece--circle {
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+}
+
+/* Long strip pieces */
+.gv-confetti__piece--strip {
+    width: 4px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* Colors matching GV palette */
+.gv-confetti__piece:nth-child(6n+1) {
+    background: #4F46E5;
+}
+
+.gv-confetti__piece:nth-child(6n+2) {
+    background: #6366F1;
+}
+
+.gv-confetti__piece:nth-child(6n+3) {
+    background: #22c55e;
+}
+
+.gv-confetti__piece:nth-child(6n+4) {
+    background: #eab308;
+}
+
+.gv-confetti__piece:nth-child(6n+5) {
+    background: #00F0FF;
+}
+
+.gv-confetti__piece:nth-child(6n+6) {
+    background: #8B5CF6;
+}
+
+/* Stagger delays */
+.gv-confetti__piece:nth-child(1) {
+    animation-delay: 0s;
+    --confetti-x: -180px;
+    --confetti-y: -280px;
+    --confetti-r: 720deg;
+}
+
+.gv-confetti__piece:nth-child(2) {
+    animation-delay: 0.02s;
+    --confetti-x: 120px;
+    --confetti-y: -320px;
+    --confetti-r: -540deg;
+}
+
+.gv-confetti__piece:nth-child(3) {
+    animation-delay: 0.04s;
+    --confetti-x: -80px;
+    --confetti-y: -250px;
+    --confetti-r: 480deg;
+}
+
+.gv-confetti__piece:nth-child(4) {
+    animation-delay: 0.06s;
+    --confetti-x: 200px;
+    --confetti-y: -200px;
+    --confetti-r: -360deg;
+}
+
+.gv-confetti__piece:nth-child(5) {
+    animation-delay: 0.08s;
+    --confetti-x: -250px;
+    --confetti-y: -180px;
+    --confetti-r: 900deg;
+}
+
+.gv-confetti__piece:nth-child(6) {
+    animation-delay: 0.1s;
+    --confetti-x: 50px;
+    --confetti-y: -350px;
+    --confetti-r: -720deg;
+}
+
+.gv-confetti__piece:nth-child(7) {
+    animation-delay: 0.12s;
+    --confetti-x: -140px;
+    --confetti-y: -300px;
+    --confetti-r: 600deg;
+}
+
+.gv-confetti__piece:nth-child(8) {
+    animation-delay: 0.14s;
+    --confetti-x: 160px;
+    --confetti-y: -240px;
+    --confetti-r: -480deg;
+}
+
+.gv-confetti__piece:nth-child(9) {
+    animation-delay: 0.16s;
+    --confetti-x: -220px;
+    --confetti-y: -160px;
+    --confetti-r: 540deg;
+}
+
+.gv-confetti__piece:nth-child(10) {
+    animation-delay: 0.18s;
+    --confetti-x: 90px;
+    --confetti-y: -380px;
+    --confetti-r: -900deg;
+}
+
+.gv-confetti__piece:nth-child(11) {
+    animation-delay: 0.05s;
+    --confetti-x: -60px;
+    --confetti-y: -310px;
+    --confetti-r: 360deg;
+}
+
+.gv-confetti__piece:nth-child(12) {
+    animation-delay: 0.07s;
+    --confetti-x: 240px;
+    --confetti-y: -190px;
+    --confetti-r: -600deg;
+}
+
+.gv-confetti__piece:nth-child(13) {
+    animation-delay: 0.09s;
+    --confetti-x: -190px;
+    --confetti-y: -270px;
+    --confetti-r: 800deg;
+}
+
+.gv-confetti__piece:nth-child(14) {
+    animation-delay: 0.11s;
+    --confetti-x: 30px;
+    --confetti-y: -340px;
+    --confetti-r: -440deg;
+}
+
+.gv-confetti__piece:nth-child(15) {
+    animation-delay: 0.13s;
+    --confetti-x: -100px;
+    --confetti-y: -220px;
+    --confetti-r: 660deg;
+}
+
+.gv-confetti__piece:nth-child(16) {
+    animation-delay: 0.15s;
+    --confetti-x: 180px;
+    --confetti-y: -290px;
+    --confetti-r: -780deg;
+}
+
+.gv-confetti__piece:nth-child(17) {
+    animation-delay: 0.03s;
+    --confetti-x: -280px;
+    --confetti-y: -150px;
+    --confetti-r: 420deg;
+}
+
+.gv-confetti__piece:nth-child(18) {
+    animation-delay: 0.17s;
+    --confetti-x: 280px;
+    --confetti-y: -170px;
+    --confetti-r: -300deg;
+}
+
+@keyframes gv-confetti-burst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--confetti-x), var(--confetti-y)) rotate(var(--confetti-r)) scale(0.5);
+    }
+}

@@ -226,3 +226,40 @@
     color: var(--accent);
     animation: pulse-subtle 1.2s ease-in-out infinite;
 }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .lab-env {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .lab-env__info {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1.2rem;
+    }
+
+    .lab-env__terminal {
+        min-height: 300px;
+    }
+
+    .lab-env__terminal-body {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lab-env__info-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .lab-env__flag-form {
+        flex-direction: column;
+    }
+
+    .lab-env__flag-btn {
+        border-radius: 0 0 6px 6px;
+    }
+}

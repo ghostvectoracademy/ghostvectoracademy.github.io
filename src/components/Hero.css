@@ -4,6 +4,39 @@
     flex-direction: column;
     padding-top: 64px;
     border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hexagonal pattern background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52'%3E%3Cpath d='M30 0L60 15v22L30 52 0 37V15z' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-size: 60px 52px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Circuit board decorative lines */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background:
+        linear-gradient(90deg, transparent 49.5%, rgba(79, 70, 229, 0.04) 49.5%, rgba(79, 70, 229, 0.04) 50.5%, transparent 50.5%) 0 0 / 80px 80px,
+        linear-gradient(0deg, transparent 49.5%, rgba(79, 70, 229, 0.04) 49.5%, rgba(79, 70, 229, 0.04) 50.5%, transparent 50.5%) 0 0 / 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at 100% 50%, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 100% 50%, black 0%, transparent 70%);
 }
 
 /* ── 3-Column Grid ── */
@@ -12,6 +45,8 @@
     grid-template-columns: 1fr 1.2fr 0.8fr;
     flex: 1;
     border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
 }
 
 .hero__left,
@@ -294,6 +329,8 @@
     display: grid;
     grid-template-columns: 1fr 1.2fr 0.8fr;
     border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
 }
 
 .hero__bottom-left,
